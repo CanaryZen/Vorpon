@@ -3,7 +3,7 @@
 A Python-Based Gaming Console using the VPG-PY Architecture (Vorpon Processor Graphics-Python).
 
 # About Vorpon
-Vorpon is a Python-Based Gaming Console using the VPG-PY Architecture (Vorpon Processor Graphics-Python) and is meant to look similar to the Original Nintendo Game Boy. But instead of using the Sharp LR35902 core processor, it uses a Virtual Processor/Architecture which is based off the x86-64/ARM64 Processors/Architectures.
+Vorpon is a Python-Based Gaming Console using the VPG-PY Architecture (Vorpon Processor Graphics-Python) and is meant to look similar to the Original Nintendo Game Boy. But instead of using the Sharp LR35902 core processor, it uses a Virtual Processor/Architecture which is based off the x86-64/ARM64 Processors/Architectures. Vorpon also comes with it's own BIOS (Basic Input/Output System) which is used to verify The Configuration/Games, making sure that The Configuration/Games is not either deleted or corrupted.
 
 Unlike the Original Nintendo Game Boy, the Advanche Vorpon runs on a Dual-Band Virtual Processor which lets the BIOS do some tests on both the BIOS Configuration, and the game itself. Making sure if the BIOS Configuration/Game is not either deleted or corrupted.
 
