@@ -10,9 +10,9 @@ Unlike the Original Nintendo Game Boy, the Advanche Vorpon runs on a Dual-Band V
 # Modding Vorpon
 Vorpon is also open source, which makes you able to customize your own Vorpon to your needs. You can also make mods for the Vorpon, just take note that any errors that happen between the Custom Games/Applications made by users and Officially Verified Games for Vorpon will lead to a Corruption error when trying to launch the Game/3rd-Party Application. Rendering the Custom Game/Application unusable unless fixed. Of course you can bypass this corruption error by deleting the corruption detection, but make sure that if you remove subprocess completely, Vorpon will bootloop. Though this isn't seen a lot just take note about that.
 
-# 🐞 Bugs/Stability
-**Bugs/Stability:**
-|               Critical Bugs                |         Stability               |
+# 🐞 Vulnerabilities/Stability
+**Vulnerabilities/Stability:**
+|               Vulnerabilities              |         Stability               |
 | ------------------------------------------ | ------------------------------- |
 | False BIOS/Configuration Errors (Ctrl+C)   | ✅ Doesn't Corrupt/Crash Vorpon |
 
