@@ -100,8 +100,12 @@ class BIOS:
             
             try:
                 if name == 'nt':
+                    clear()
+                    sleep(.75)
                     subprocess.check_call(['python', f'{data["bios_conf"]["GameName"]}.vpg'])
                 else:
+                    clear()
+                    sleep(.75)
                     subprocess.check_call(['python3', f'{data["bios_conf"]["GameName"]}.vpg'])
             except subprocess.CalledProcessError:
                 consoletext1 = 'Advanche Vorpon'
