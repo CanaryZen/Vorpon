@@ -1,0 +1,125 @@
+import os
+import json
+import hashlib
+import subprocess
+import sys
+from os import system, name
+from time import sleep
+from os.path import exists
+
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
+
+class BIOS:
+    def PrelaunchBIOS():
+        try:
+            system('mode con: cols=50 lines=20')
+            file_exists = exists(f'{os.path.normpath(os.getcwd() + os.sep + os.pardir)}\\config\\config.vpb')
+            if file_exists == True:
+                with open(f'{os.path.normpath(os.getcwd() + os.sep + os.pardir)}\\config\\config.vpb') as f:
+                    data = json.load(f)
+                    f.close()
+                if data["bios_conf"]["SkipBIOS"] == True:
+                    BIOS.bootGame()
+                else:
+                    BIOS.PostlaunchBIOS()
+            else:
+                a = 'The Configuration File for the BIOS \'config.vpb\' was not found. Please re-download Advanche Vorpon.'
+                b = type(a).__name__.encode()
+                c = hashlib.sha256(b).hexdigest().upper()[:4]
+                while True:
+                    clear()
+                    print('[BIOS ERROR] An error has occured while trying to load the BIOS.')
+                    print(f'[BIOS ERROR] ERROR CODE: 0x{c}')
+                    print(f'[BIOS ERROR] ERROR MESSAGE: {a}')
+                    sleep(1)
+        except:
+            a = 'The Configuration File for the BIOS \'config.vpb\' is corrupted. Please re-download Advanche Vorpon.'
+            b = type(a).__name__.encode()
+            c = hashlib.sha256(b).hexdigest().upper()[:4]
+            while True:
+                clear()
+                print('[BIOS ERROR] An error has occured while trying to load the BIOS.')
+                print(f'[BIOS ERROR] ERROR CODE: 0x{c}')
+                print(f'[BIOS ERROR] ERROR MESSAGE: {a}')
+                sleep(1)
+
+    def PostlaunchBIOS():
+        consoletext1 = 'Advanche Vorpon'
+        consoletext2 = '(c) Advanche Corporation. All rights reserved.'
+        consoletext3 = 'Booting Game...'
+        clear()
+        print(consoletext1.center(50))
+        print(consoletext2.center(50))
+        print()
+        print(consoletext3.center(50))
+        sleep(5)
+        BIOS.bootGame()
+
+    def bootGame():
+        try:
+            file_exists = exists(f'{os.path.normpath(os.getcwd() + os.sep + os.pardir)}\\config\\config.vpb')
+            if file_exists == False:
+                consoletext1 = 'Advanche Vorpon'
+                consoletext2 = '(c) Advanche Corporation. All rights reserved.'
+                consoletext3 = 'The BIOS Configuration was not detected.'
+                consoletext4 = 'Please re-download the'
+                consoletext5 = 'latest version of your Vorpon.'
+                clear()
+                print(consoletext1.center(50))
+                print(consoletext2.center(50))
+                print()
+                print(consoletext3.center(50))
+                print(consoletext4.center(50))
+                print(consoletext5.center(50))
+                while True:
+                    sleep(1)
+            with open(f'{os.path.normpath(os.getcwd() + os.sep + os.pardir)}\\config\\config.vpb') as f:
+                data = json.load(f)
+                f.close()
+            os.chdir('..\\games')
+            file_exists = exists(f'{data["bios_conf"]["GameName"]}.vpg')
+            if file_exists == False:
+                consoletext1 = 'Advanche Vorpon'
+                consoletext2 = '(c) Advanche Corporation. All rights reserved.'
+                consoletext3 = 'No Game was Detected.'
+                consoletext4 = 'Please insert a Game Cartridge'
+                consoletext5 = 'and restart your Vorpon.'
+                clear()
+                print(consoletext1.center(50))
+                print(consoletext2.center(50))
+                print()
+                print(consoletext3.center(50))
+                print(consoletext4.center(50))
+                print(consoletext5.center(50))
+                while True:
+                    sleep(1)
+            
+            try:
+                if name == 'nt':
+                    subprocess.check_call(['python', f'{data["bios_conf"]["GameName"]}.vpg'])
+                else:
+                    subprocess.check_call(['python3', f'{data["bios_conf"]["GameName"]}.vpg'])
+            except subprocess.CalledProcessError:
+                consoletext1 = 'Advanche Vorpon'
+                consoletext2 = '(c) Advanche Corporation. All rights reserved.'
+                consoletext3 = 'The Game you inserted is corrupted.'
+                consoletext4 = 'Please insert a new Game Cartridge'
+                consoletext5 = 'and restart your Vorpon.'
+                clear()
+                print(consoletext1.center(50))
+                print(consoletext2.center(50))
+                print()
+                print(consoletext3.center(50))
+                print(consoletext4.center(50))
+                print(consoletext5.center(50))
+                while True:
+                    sleep(1)
+        except:
+            while True:
+                sleep(1)
+
+BIOS.PrelaunchBIOS()
