@@ -26,8 +26,7 @@ Vorpon is also open source, which makes you able to customize your own Vorpon to
 | Vortex        | 1.0.20491.8240 | ✅ Python 3.5.9 - Latest |
 
 # Optional Supported Features (For Certain Games)
-| Requirements    | Stability          |
-| --------------- | ------------------ |
-| Pygame          | ✅ Works           |
-| PyBoy           | ✅ In Development  |
-| Vorpon Game Pak | 🔨 In Development  |
+| Supported Features | Stability          |
+| ------------------ | ------------------ |
+| Pygame             | ✅ Works           |
+| Vorpon Game Pak    | 🔨 In Development  |
