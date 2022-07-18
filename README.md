@@ -29,4 +29,5 @@ Vorpon is also open source, which makes you able to customize your own Vorpon to
 | Requirements    | Stability          |
 | --------------- | ------------------ |
 | Pygame          | ✅ Works           |
+| PyBoy           | ✅ Works           |
 | Vorpon Game Pak | 🔨 In Development  |
